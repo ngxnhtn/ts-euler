@@ -1,7 +1,10 @@
 import chalk from 'chalk';
+
 export abstract class EulerSolution {
   abstract getProblem(): string;
+
   abstract solve(): number | Promise<number>;
+
   async run() {
     const startTime = new Date();
     console.log('-------------------------------------------');
