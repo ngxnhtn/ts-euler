@@ -1,6 +1,6 @@
 # Euler solution in typescript
 
-```
+```shell
 Usage: tsx src/index.ts [options]
 Options:
       --version  Show version number                     [boolean]
