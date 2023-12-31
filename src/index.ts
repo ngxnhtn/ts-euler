@@ -23,11 +23,13 @@ const parser = yargs(process.argv.slice(2))
     force: {
       alias: 'f',
       demandOption: false,
+      describe: 'Force create new problem',
       type: 'boolean',
     },
     all: {
       alias: 'a',
       demandOption: false,
+      describe: 'Run all solution',
       type: 'boolean',
     },
   })
