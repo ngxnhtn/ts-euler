@@ -6,30 +6,32 @@ import util from 'util';
 import yargs from 'yargs/yargs';
 import newProblem from './utils/newProblem.js';
 
-const parser = yargs(process.argv.slice(2)).options({
-  create: {
-    alias: 'c',
-    demandOption: false,
-    describe: 'Create new problem file',
-    type: 'number',
-  },
-  run: {
-    alias: 'r',
-    demandOption: false,
-    describe: 'Run solution',
-    type: 'number',
-  },
-  force: {
-    alias: 'f',
-    demandOption: false,
-    type: 'boolean',
-  },
-  all: {
-    alias: 'a',
-    demandOption: false,
-    type: 'boolean',
-  },
-});
+const parser = yargs(process.argv.slice(2))
+  .options({
+    create: {
+      alias: 'c',
+      demandOption: false,
+      describe: 'Create new problem file',
+      type: 'number',
+    },
+    run: {
+      alias: 'r',
+      demandOption: false,
+      describe: 'Run solution',
+      type: 'number',
+    },
+    force: {
+      alias: 'f',
+      demandOption: false,
+      type: 'boolean',
+    },
+    all: {
+      alias: 'a',
+      demandOption: false,
+      type: 'boolean',
+    },
+  })
+  .help(true);
 
 (async () => {
   const args = await parser.argv;
