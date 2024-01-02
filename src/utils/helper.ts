@@ -1,3 +1,5 @@
+import path from 'path';
+
 export function isPrime(target: number): boolean {
   for (let index = 2; index < target / 2 + 1; index++) {
     if (target % index == 0) {
@@ -30,4 +32,9 @@ export function getFactors(target: number): { [key: number]: number } {
   }
 
   return factor;
+}
+
+export function getFileName(...args: string[]) {
+  let dirName = new URL('.', import.meta.url).pathname;
+  return path.join(dirName, ...args);
 }
