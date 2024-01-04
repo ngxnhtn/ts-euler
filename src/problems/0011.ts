@@ -72,14 +72,13 @@ class P0011 extends EulerSolution {
     const data = await fs
       .readFileSync(getFileName('..', 'data', '0011.txt'), 'utf-8')
       .split('\n')
-      .map((x) => x.split(' '));
-
-    let satinizedData = data.map((x) => {
-      return x.map((y) => {
-        return parseInt(y);
+      .map((x) => x.split(' '))
+      .map((x) => {
+        return x.map((y) => {
+          return parseInt(y);
+        });
       });
-    });
 
-    return satinizedData;
+    return data;
   }
 }

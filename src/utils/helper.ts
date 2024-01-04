@@ -38,3 +38,11 @@ export function getFileName(...args: string[]) {
   let dirName = new URL('.', import.meta.url).pathname;
   return path.join(dirName, ...args);
 }
+
+export function isSqrt(target: number): boolean {
+  const factors = getFactors(target);
+  return Object.values(factors).reduce(
+    (prev, cur) => (cur % 2 == 1 ? false : prev),
+    true
+  );
+}

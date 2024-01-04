@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import chalk from 'chalk';
 import { exec } from 'child_process';
 import fs from 'fs';
 import path from 'path';
@@ -32,6 +33,12 @@ const parser = yargs(process.argv.slice(2))
       describe: 'Run all solution',
       type: 'boolean',
     },
+    count: {
+      alias: 't',
+      demandOption: false,
+      describe: 'Count all Solutions',
+      type: 'boolean',
+    },
   })
   .help(true);
 
@@ -58,5 +65,11 @@ const parser = yargs(process.argv.slice(2))
       let { stdout } = await promisedExec(`tsx ${problemPath}`);
       console.log(stdout);
     });
+  }
+
+  if (args.count !== undefined) {
+    let dirName = new URL('.', import.meta.url).pathname;
+    let fileList = await fs.readdirSync(path.join(dirName, 'problems'));
+    console.log(chalk.red(`Total: ${fileList.length} solutions`));
   }
 })();
